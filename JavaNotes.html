@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment — JavaScript Notes</title>
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #122; background:#f7f8fb; }
+
+    /* Page container */
+    .paper {
+      max-width: 900px;
+      margin: 32px auto;
+      background: white;
+      padding: 28px 36px;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(18,34,56,0.08);
+      line-height: 1.5;
+    }
+
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      margin-bottom: 18px;
+    }
+
+    header .left {
+      flex:1;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+      color:#0b2540;
+      letter-spacing: 0.2px;
+    }
+
+    .meta {
+      color:#475569;
+      font-size:0.95rem;
+    }
+
+    .date {
+      color:#475569;
+      font-size:0.92rem;
+      text-align:right;
+      min-width:140px;
+    }
+
+    hr.divider {
+      border: none;
+      height:1px;
+      background: linear-gradient(90deg,transparent, #e6eef9, transparent);
+      margin: 18px 0 22px;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 10px;
+    }
+    .sec-num {
+      background:#e9f2ff;
+      color:#0b4aa0;
+      border-radius:6px;
+      padding:6px 10px;
+      font-weight:700;
+      font-size:0.9rem;
+    }
+    .sec-heading {
+      font-weight:700;
+      color:#0b2540;
+      font-size:1.05rem;
+    }
+
+    p, li {
+      color:#1f2937;
+      font-size:0.98rem;
+      margin-bottom:8px;
+    }
+
+    /* Tables for comparison */
+    table.compare {
+      width:100%;
+      border-collapse: collapse;
+      margin-top:8px;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+    table.compare th, table.compare td {
+      border:1px solid #e6eef9;
+      padding:10px 12px;
+      text-align:left;
+      vertical-align:top;
+      background:white;
+    }
+    table.compare th {
+      background:#f1f7ff;
+      color:#0b4aa0;
+      font-weight:600;
+    }
+
+    /* Code blocks */
+    pre.code {
+      background: #0b1220;
+      color: #dbeafe;
+      padding: 14px;
+      border-radius:8px;
+      font-family: "Courier New", monospace;
+      font-size:0.95rem;
+      overflow:auto;
+      margin-top:8px;
+      margin-bottom:12px;
+    }
+
+    .note {
+      background:#fff8e6;
+      border-left:4px solid #ffcc00;
+      padding:10px 12px;
+      border-radius:6px;
+      font-size:0.95rem;
+      margin-top:10px;
+    }
+
+    footer {
+      margin-top:18px;
+      color:#64748b;
+      font-size:0.9rem;
+      text-align:right;
+    }
+
+    /* responsive */
+    @media (max-width:640px) {
+      .paper { padding:18px; margin:16px; }
+      header { flex-direction:column; align-items:flex-start; gap:8px; }
+      .date { text-align:left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="paper" role="main">
+    <header>
+      <div class="left">
+        <h1>Assignment</h1>
+        <div class="meta">Class notes / Core Java</div>
+      </div>
+      <div class="date">Date — 20/11/2025</div>
+    </header>
+
+    <hr class="divider" />
+
+    <section id="sec1">
+        <div class="section-title">
+          <div class="sec-num">1</div>
+          <div class="sec-heading">Object Class in JavaScript</div>
+        </div>
+      
+        <p>The <strong>Object class</strong> in JavaScript is the base (root) class from which all other objects inherit. Every object in JavaScript directly or indirectly inherits properties and methods from <strong>Object.prototype</strong>. It provides fundamental functionality to all objects.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Why Object Class is Important?</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>It acts as the parent class of all objects.</li>
+          <li>Provides common built-in methods used by all objects.</li>
+          <li>Forms the base of the prototype chain.</li>
+        </ul>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Creating an Object Using Object Class</h4>
+      
+        <p><strong>1. Using <code>new Object()</code></strong></p>
+        <pre class="code">
+      let person = new Object();
+      person.name = "Vedika";
+      person.age = 20;
+        </pre>
+      
+        <p><strong>2. Using Object Literal (recommended)</strong></p>
+        <pre class="code">
+      let person = {
+        name: "Vedika",
+        age: 20
+      };
+        </pre>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Common Methods of the Object Class</h4>
+      
+        <p><strong>1. <code>Object.keys()</code></strong> — returns keys of an object</p>
+        <pre class="code">
+      Object.keys(person); // ["name", "age"]
+        </pre>
+      
+        <p><strong>2. <code>Object.values()</code></strong> — returns values</p>
+        <pre class="code">
+      Object.values(person); // ["Vedika", 20]
+        </pre>
+      
+        <p><strong>3. <code>Object.entries()</code></strong> — returns key-value pairs</p>
+        <pre class="code">
+      Object.entries(person);
+      // [["name","Vedika"], ["age",20]]
+        </pre>
+      
+        <p><strong>4. <code>hasOwnProperty()</code></strong> — checks if property exists</p>
+        <pre class="code">
+      person.hasOwnProperty("name"); // true
+        </pre>
+      
+        <p><strong>5. <code>Object.freeze()</code></strong> — makes object unchangeable</p>
+        <pre class="code">
+      Object.freeze(person);
+        </pre>
+      
+        <p><strong>6. <code>Object.assign()</code></strong> — copies object properties</p>
+        <pre class="code">
+      let newObj = Object.assign({}, person);
+        </pre>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Prototype Link (Object Prototype)</h4>
+        <pre class="code">
+      let obj = {};
+      console.log(obj.__proto__ === Object.prototype); // true
+        </pre>
+      
+        <p style="margin-top:8px;">This shows all objects inherit properties and methods from the Object class through the prototype chain.</p>
+      </section>
+
+      <section id="sec2">
+        <div class="section-title">
+          <div class="sec-num">2</div>
+          <div class="sec-heading">Compilation and Decompilation</div>
+        </div>
+      
+        <h4 style="margin-top:6px; font-size:1rem; color:#0b2540;">Compilation</h4>
+        <p><strong>Compilation</strong> is the process of converting high-level source code into machine code that the computer can understand. It is performed by a <strong>compiler</strong>. The entire program is compiled at once, and errors are reported after compilation.</p>
+      
+        <ul style="margin:8px 0 0 18px;">
+          <li>Converts high-level code → machine code</li>
+          <li>Faster execution since compiled code is ready to run</li>
+          <li>Output files like <code>.exe</code>, <code>.class</code>, <code>.o</code></li>
+          <li>Examples: GCC compiler, <code>javac</code> for Java</li>
+        </ul>
+      
+        <pre class="code">
+      Source Code → Compiler → Machine Code
+        </pre>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Decompilation</h4>
+        <p><strong>Decompilation</strong> is the reverse of compilation. It converts machine code or bytecode back into readable high-level code. This process is performed by a <strong>decompiler</strong>.</p>
+      
+        <ul style="margin:8px 0 0 18px;">
+          <li>Machine code → high-level code</li>
+          <li>Used for debugging, analysis, code recovery</li>
+          <li>Output is not always exactly the original code</li>
+          <li>Examples: JD-GUI, JAD, APK decompilers</li>
+        </ul>
+      
+        <pre class="code">
+      Machine Code / Bytecode → Decompiler → High-Level Code
+        </pre>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Difference Between Compilation & Decompilation</h4>
+      
+        <table class="compare" aria-label="compilation vs decompilation">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Compilation</th>
+              <th>Decompilation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Direction</td>
+              <td>High-level → Machine code</td>
+              <td>Machine code → High-level</td>
+            </tr>
+            <tr>
+              <td>Tool Used</td>
+              <td>Compiler</td>
+              <td>Decompiler</td>
+            </tr>
+            <tr>
+              <td>Purpose</td>
+              <td>To run the program</td>
+              <td>To understand or recover code</td>
+            </tr>
+            <tr>
+              <td>Accuracy</td>
+              <td>Exact conversion</td>
+              <td>Not always exact</td>
+            </tr>
+            <tr>
+              <td>Examples</td>
+              <td>gcc, javac</td>
+              <td>JD-GUI, JAD</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sec3">
+        <div class="section-title">
+          <div class="sec-num">3</div>
+          <div class="sec-heading">Enhanced For Loop (For-Each Loop)</div>
+        </div>
+      
+        <p>The <strong>Enhanced for loop</strong>, also known as the <strong>for-each loop</strong>, is used to iterate over arrays or collections in a simple and readable way. Unlike the traditional <code>for</code> loop, it does not require using an index.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Syntax (Java)</h4>
+        <pre class="code">
+      for (datatype variable : arrayOrCollection) {
+          // statements
+      }
+        </pre>
+      
+        <p>It takes each element from the array or collection, stores it in a temporary variable, and runs the loop for every element.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Example in Java</h4>
+        <pre class="code">
+      int numbers[] = {10, 20, 30, 40};
+      
+      for (int n : numbers) {
+          System.out.println(n);
+      }
+        </pre>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Example with Strings</h4>
+        <pre class="code">
+      String names[] = {"Vedika", "Riya", "Amit"};
+      
+      for (String name : names) {
+          System.out.println(name);
+      }
+        </pre>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Advantages</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>No index required</li>
+          <li>Cleaner and more readable code</li>
+          <li>Prevents index-out-of-bound errors</li>
+        </ul>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Limitations</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Index cannot be accessed directly</li>
+          <li>Cannot modify elements directly in some cases</li>
+          <li>Works only with arrays and iterable collections</li>
+        </ul>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Similar Concept in JavaScript (for...of Loop)</h4>
+        <pre class="code">
+      let arr = [10, 20, 30];
+      
+      for (let item of arr) {
+          console.log(item);
+      }
+        </pre>
+      
+        <p style="margin-top:8px;">The enhanced for loop simplifies iteration and improves readability, making it a preferred choice when index values are not required.</p>
+      </section>
+      
+      <section id="sec4">
+        <div class="section-title">
+          <div class="sec-num">4</div>
+          <div class="sec-heading">Legacy Class</div>
+        </div>
+      
+        <p>A <strong>Legacy Class</strong> refers to an old or outdated class that was created in earlier versions of a language or framework. These classes may still work today, but they are not recommended for new development because modern alternatives offer better performance, security, and features.</p>
+      
+        <p>Legacy classes are usually kept for <strong>backward compatibility</strong> so older programs do not break when the language or platform updates.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Characteristics of Legacy Classes</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Old-style classes from earlier versions of a language</li>
+          <li>May lack modern features and improvements</li>
+          <li>Kept for backward compatibility</li>
+          <li>Not recommended for new development</li>
+          <li>Often replaced by newer, more efficient classes</li>
+        </ul>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Example (Java Legacy Classes)</h4>
+        <p>Some classes in Java are considered legacy because they were part of early Java versions before Collections Framework was introduced.</p>
+      
+        <pre class="code">
+      // Legacy class example in Java
+      import java.util.Vector;
+      
+      Vector<Integer> list = new Vector<>();
+      list.add(10);
+      list.add(20);
+      System.out.println(list);
+        </pre>
+      
+        <p><strong>Better modern alternative:</strong> <code>ArrayList</code></p>
+      
+        <pre class="code">
+      import java.util.ArrayList;
+
+      ArrayList<Integer> list = new ArrayList<>();
+      list.add(10);
+      list.add(20);
+      System.out.println(list);
+        </pre>
+      
+        <p style="margin-top:8px;">Legacy classes are useful for maintaining old projects, but modern applications should use updated and more efficient classes.</p>
+      </section>
+      
+      <section id="sec5">
+        <div class="section-title">
+          <div class="sec-num">5</div>
+          <div class="sec-heading">Array of Objects</div>
+        </div>
+      
+        <p>An <strong>Array of Objects</strong> is an array where each element is an object. This structure is useful when we need to store multiple records, each containing multiple properties (like name, age, marks, etc.).</p>
+      
+        <p>Arrays help store multiple objects, and objects help store multiple data fields — making this combination powerful for real-world data.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Example (JavaScript)</h4>
+        <pre class="code">
+      let students = [
+        { name: "Vedika", age: 20, marks: 85 },
+        { name: "Riya", age: 19, marks: 90 },
+        { name: "Amit", age: 21, marks: 78 }
+      ];
+      
+      console.log(students[0].name); // Output: Vedika
+        </pre>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Looping Through Array of Objects</h4>
+        <pre class="code">
+      // Using for loop
+      for (let i = 0; i < students.length; i++) {
+        console.log(students[i].name + " - " + students[i].marks);
+      }
+      
+      // Using for...of loop
+      for (let s of students) {
+        console.log(s.name, s.age, s.marks);
+      }
+        </pre>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Example (Java)</h4>
+        <pre class="code">
+      // Java class
+      class Student {
+          String name;
+          int age;
+      
+          Student(String n, int a) {
+              name = n;
+              age = a;
+          }
+      }
+      
+      public class Main {
+          public static void main(String[] args) {
+      
+              // Array of objects
+              Student[] arr = {
+                  new Student("Vedika", 20),
+                  new Student("Riya", 19),
+                  new Student("Amit", 21)
+              };
+      
+              for (Student s : arr) {
+                  System.out.println(s.name + " " + s.age);
+              }
+          }
+      }
+        </pre>
+      
+        <p style="margin-top:8px;">Array of objects is widely used when storing structured data such as student lists, employee records, product details, and more.</p>
+      </section>
+      
+      <section id="sec6">
+        <div class="section-title">
+          <div class="sec-num">6</div>
+          <div class="sec-heading">Generics</div>
+        </div>
+      
+        <p><strong>Generics</strong> allow us to create classes and methods that can work with any data type, while still providing <strong>type safety</strong>. This means Java checks incorrect data types during compile time and prevents errors.</p>
+      
+        <p>Generics make code reusable, safe, and easy to understand.</p>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Simple Generic Class Example</h4>
+        <pre class="code">
+      class Box<T> {   // T means any type
+          T item;
+      
+          void set(T item) {
+              this.item = item;
+          }
+      
+          T get() {
+              return item;
+          }
+      }
+      
+      public class Main {
+          public static void main(String[] args) {
+      
+              Box<Integer> b1 = new Box<>();
+              b1.set(10);
+      
+              Box<String> b2 = new Box<>();
+              b2.set("Hello");
+      
+              System.out.println(b1.get());  // 10
+              System.out.println(b2.get());  // Hello
+          }
+      }
+        </pre>
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Explanation</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li><strong>T</strong> means "type" — it can become Integer, String, Float, etc.</li>
+          <li><code>Box&lt;Integer&gt;</code> → T becomes Integer</li>
+          <li><code>Box&lt;String&gt;</code> → T becomes String</li>
+          <li>Prevents wrong inputs at compile time</li>
+        </ul>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Generic Method Example</h4>
+        <pre class="code">
+      public <T> void display(T value) {
+          System.out.println(value);
+      }
+      
+      display(100);        // Integer
+      display("Vedika");   // String
+        </pre>
+      
+        <p style="margin-top:8px;">Generics ensure type safety and remove the need for manual type casting, making Java programs safer and cleaner.</p>
+      </section>
+      
+      <section id="sec7">
+        <div class="section-title">
+          <div class="sec-num">7</div>
+          <div class="sec-heading">Wrapper Class</div>
+        </div>
+      
+        <p>A <strong>Wrapper Class</strong> in Java is a class that converts a primitive data type into an object. Java provides a wrapper class for every primitive type. These classes “wrap” the primitive value inside an object so it can be used in object-based features like Collections, Generics, etc.</p>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Why Do We Need Wrapper Classes?</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>To store primitive values in objects (e.g., in ArrayList)</li>
+          <li>To use features like Collections and Generics (which only work with objects)</li>
+          <li>To use utility methods present in wrapper classes</li>
+          <li>For automatic conversion (autoboxing & unboxing)</li>
+        </ul>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Primitive Type → Wrapper Class</h4>
+      
+        <table class="compare" aria-label="primitive to wrapper">
+          <thead>
+            <tr>
+              <th>Primitive Type</th>
+              <th>Wrapper Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>byte</td><td>Byte</td></tr>
+            <tr><td>short</td><td>Short</td></tr>
+            <tr><td>int</td><td>Integer</td></tr>
+            <tr><td>long</td><td>Long</td></tr>
+            <tr><td>float</td><td>Float</td></tr>
+            <tr><td>double</td><td>Double</td></tr>
+            <tr><td>char</td><td>Character</td></tr>
+            <tr><td>boolean</td><td>Boolean</td></tr>
+          </tbody>
+        </table>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Example: Converting Primitive to Object (Boxing)</h4>
+        <pre class="code">
+      int a = 10;
+      
+      // Boxing (manual)
+      Integer obj1 = Integer.valueOf(a);
+      
+      // Autoboxing (automatic)
+      Integer obj2 = a;
+      
+      System.out.println(obj1); // 10
+      System.out.println(obj2); // 10
+        </pre>
+      
+        <p><strong>Explanation:</strong> Primitive <code>int</code> is converted into its object type <code>Integer</code>. Java automatically converts when needed.</p>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Example: Converting Object to Primitive (Unboxing)</h4>
+        <pre class="code">
+      Integer x = 50;
+      
+      // Unboxing (manual)
+      int y = x.intValue();
+      
+      // Auto-unboxing (automatic)
+      int z = x;
+      
+      System.out.println(y); // 50
+      System.out.println(z); // 50
+        </pre>
+      
+        <p><strong>Explanation:</strong> Object <code>Integer</code> is converted back to primitive <code>int</code>.</p>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Difference Between Primitive and Wrapper Class</h4>
+      
+        <table class="compare" aria-label="primitive vs wrapper">
+          <thead>
+            <tr>
+              <th>Primitive</th>
+              <th>Wrapper Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Stores simple values</td>
+              <td>Stores values as objects</td>
+            </tr>
+            <tr>
+              <td>Cannot be used in Collections</td>
+              <td>Can be used in Collections (ArrayList, HashMap)</td>
+            </tr>
+            <tr>
+              <td>Faster performance</td>
+              <td>Slower because of object creation</td>
+            </tr>
+            <tr>
+              <td>No utility methods</td>
+              <td>Provides useful methods (parseInt, valueOf)</td>
+            </tr>
+            <tr>
+              <td>Default values like 0, false</td>
+              <td>Default value is null</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Example: Wrapper Class Useful in Collections</h4>
+        <pre class="code">
+      // int cannot be used directly in ArrayList
+      ArrayList<Integer> list = new ArrayList<>();
+      
+      list.add(10);   // autoboxing
+      list.add(20);
+      
+      System.out.println(list); // [10, 20]
+        </pre>
+      
+        <p><strong>Explanation:</strong> ArrayList only stores objects. So <code>int</code> values are automatically converted into <code>Integer</code> objects.</p>
+      
+        <p style="margin-top:10px;">Wrapper classes make Java more flexible by combining the power of primitive speed with object-oriented features.</p>
+      </section>
+      
+      
+</body>
+</html>
