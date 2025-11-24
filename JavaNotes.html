@@ -659,6 +659,263 @@
         <p style="margin-top:10px;">Wrapper classes make Java more flexible by combining the power of primitive speed with object-oriented features.</p>
       </section>
       
+      <section id="sec8">
+        <div class="section-title">
+          <div class="sec-num">8</div>
+          <div class="sec-heading">Collection in Java</div>
+        </div>
       
+        <p>The <strong>Collection Framework</strong> in Java is a powerful architecture that provides classes and interfaces to store and manipulate groups of objects. It includes data structures like <strong>List</strong>, <strong>Set</strong>, and <strong>Queue</strong>. In this section, we focus mainly on <strong>List</strong> and <strong>Set</strong> as requested.</p>
+      
+        <p>The Collection Framework is part of the <strong>java.util</strong> package and provides dynamic, flexible and reusable data structures.</p>
+      
+        <h4 style="margin-top:12px; font-size:1rem; color:#0b2540;">Why Use Collections?</h4>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Dynamic size (grow and shrink as needed)</li>
+          <li>Built-in methods (search, sort, reverse, etc.)</li>
+          <li>Reduces coding effort through ready-made structures</li>
+          <li>Improves performance and flexibility</li>
+          <li>Supports generic programming</li>
+        </ul>
+      
+      
+        <!-- LIST SECTION -->
+        <h4 style="margin-top:14px; font-size:1rem; color:#0b2540;">List Interface (All Types)</h4>
+        <p><strong>List</strong> stores elements in <strong>ordered</strong> form and allows <strong>duplicate values</strong>. Indexing is supported.</p>
+      
+        <table class="compare" aria-label="list types">
+          <thead>
+            <tr>
+              <th>List Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ArrayList</strong></td>
+              <td>Resizable array; fast searching; slower insert/delete in middle.</td>
+            </tr>
+            <tr>
+              <td><strong>LinkedList</strong></td>
+              <td>Node-based structure; fast insert/delete; slower searching.</td>
+            </tr>
+            <tr>
+              <td><strong>Vector</strong></td>
+              <td>Thread-safe version of ArrayList; slower performance; legacy class.</td>
+            </tr>
+            <tr>
+              <td><strong>Stack</strong></td>
+              <td>Child of Vector; follows LIFO (Last In First Out).</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Examples of List Types</h4>
+      
+        <pre class="code">
+      // ArrayList Example
+      ArrayList<String> list = new ArrayList<>();
+      list.add("Vedika");
+      list.add("Riya");
+      list.add("Vedika"); // duplicates allowed
+      System.out.println(list);
+        </pre>
+      
+        <pre class="code">
+      // LinkedList Example
+      LinkedList<Integer> nums = new LinkedList<>();
+      nums.add(10);
+      nums.add(20);
+      nums.add(30);
+      System.out.println(nums);
+        </pre>
+      
+        <pre class="code">
+      // Vector Example (Legacy)
+      Vector<Integer> v = new Vector<>();
+      v.add(1);
+      v.add(2);
+      System.out.println(v);
+        </pre>
+      
+        <pre class="code">
+      // Stack Example
+      Stack<String> st = new Stack<>();
+      st.push("A");
+      st.push("B");
+      System.out.println(st.pop()); // B
+        </pre>
+      
+      
+        <!-- LIST DIFFERENCES -->
+        <h4 style="margin-top:14px; font-size:1rem; color:#0b2540;">Difference Between List Types</h4>
+      
+        <table class="compare" aria-label="list differences">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>ArrayList</th>
+              <th>LinkedList</th>
+              <th>Vector</th>
+              <th>Stack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Speed (Search)</td>
+              <td>Fast</td>
+              <td>Slow</td>
+              <td>Fast</td>
+              <td>Fast</td>
+            </tr>
+            <tr>
+              <td>Insert/Delete Middle</td>
+              <td>Slow</td>
+              <td>Fast</td>
+              <td>Slow</td>
+              <td>Slow</td>
+            </tr>
+            <tr>
+              <td>Thread-safe</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Duplicates Allowed</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Order Maintained</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Special Behavior</td>
+              <td>General List</td>
+              <td>Node-based</td>
+              <td>Legacy synchronized</td>
+              <td>LIFO</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      
+        <!-- SET SECTION -->
+        <h4 style="margin-top:20px; font-size:1rem; color:#0b2540;">Set Interface (All Types)</h4>
+        <p><strong>Set</strong> stores <strong>unique elements</strong> and does <strong>not allow duplicates</strong>.</p>
+      
+        <table class="compare" aria-label="set types">
+          <thead>
+            <tr>
+              <th>Set Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>HashSet</strong></td>
+              <td>Fastest; no duplicates; no order maintained.</td>
+            </tr>
+            <tr>
+              <td><strong>LinkedHashSet</strong></td>
+              <td>Stores unique elements; maintains insertion order.</td>
+            </tr>
+            <tr>
+              <td><strong>TreeSet</strong></td>
+              <td>Sorted unique elements (ascending order); slower.</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      
+        <h4 style="margin-top:10px; font-size:1rem; color:#0b2540;">Examples of Set Types</h4>
+      
+        <pre class="code">
+      // HashSet Example
+      HashSet<String> set = new HashSet<>();
+      set.add("A");
+      set.add("B");
+      set.add("A"); // duplicate removed
+      System.out.println(set);
+        </pre>
+      
+        <pre class="code">
+      // LinkedHashSet Example
+      LinkedHashSet<String> lhs = new LinkedHashSet<>();
+      lhs.add("Z");
+      lhs.add("A");
+      lhs.add("M");
+      System.out.println(lhs); // maintains insertion order
+        </pre>
+      
+        <pre class="code">
+      // TreeSet Example
+      TreeSet<Integer> ts = new TreeSet<>();
+      ts.add(30);
+      ts.add(10);
+      ts.add(20);
+      System.out.println(ts); // [10, 20, 30]
+        </pre>
+      
+      
+        <!-- SET DIFFERENCES -->
+        <h4 style="margin-top:14px; font-size:1rem; color:#0b2540;">Difference Between Set Types</h4>
+      
+        <table class="compare" aria-label="set differences">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>HashSet</th>
+              <th>LinkedHashSet</th>
+              <th>TreeSet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Order</td>
+              <td>No order</td>
+              <td>Insertion order</td>
+              <td>Sorted order</td>
+            </tr>
+            <tr>
+              <td>Speed</td>
+              <td>Fastest</td>
+              <td>Fast</td>
+              <td>Slowest</td>
+            </tr>
+            <tr>
+              <td>Duplicates</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Null Allowed?</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>No (generally)</td>
+            </tr>
+            <tr>
+              <td>Use Case</td>
+              <td>Fast lookup</td>
+              <td>Order + uniqueness</td>
+              <td>Sorted unique data</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <p style="margin-top:16px;">The Collection Framework provides efficient tools for handling data. <strong>List</strong> focuses on ordered data (with duplicates), while <strong>Set</strong> ensures uniqueness. Both are essential for modern Java applications.</p>
+      </section>
+      
+      
+
 </body>
 </html>
